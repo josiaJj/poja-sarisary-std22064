@@ -3,10 +3,7 @@ package hei.school.sarisary.endpoint;
 import hei.school.sarisary.service.event.PojaSarisaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -26,5 +23,9 @@ public class PojaSarisaryController {
             throws IOException {
         String presignedUrl = pojaSarisaryService.processImage(id, image);
         return ResponseEntity.ok(presignedUrl);
+    }
+    @GetMapping("/black-and-white/{id}")
+    public ResponseEntity<String> getGrayscaleImage() {
+        return null;
     }
 }
